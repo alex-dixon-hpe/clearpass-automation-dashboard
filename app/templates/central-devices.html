@@ -1,0 +1,44 @@
+{# templates/change-vlan.html #}
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>{% block title %} Central Devices {% endblock %}</h1>
+    
+    <body>
+      <table class="table">
+        <tr class="table__header">
+          {% for header in headings %}
+          <th class="table__cell">{{ header }}</th>
+          {% endfor %}
+        </tr>
+        {% for row in data %}
+        <tr class="table__row">
+          <!-- Information from data -->
+          <td class="table__cell">{{ row[1] }}</td>
+          <td class="table__cell">{{ row[2] }}</td>
+          <td class="table__cell">{{ row[3] }}</td>
+          <td class="table__cell">{{ row[4] }}</td>
+          <td class="table__cell">{{ row[5] }}</td>
+          <td class="table__cell">{{ row[6] }}</td>
+          <td class="table__cell">{{ row[7] }}</td>
+          <td class="table__cell">{{ row[8] }}</td>
+          <td class="table__cell">{{ row[9] }}</td>
+
+          <!-- Button in each table row sending MAC Address and VLAN ID to route 'change_vlan' -->
+          <td>
+            <form action="{{ url_for('change_vlan') }}" method="POST">
+              <input id="row_id" name="row_id" type="hidden" value="{{ row[0] }}">
+              <button type="submit" class="btn btn-outline-secondary" name="edit" 
+                      value="{{ [row[0], row[4], row[8]] }}" >Change VLAN</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <p>{{ text }}</p>
+    </body>
+  </div>
+{% endblock %}

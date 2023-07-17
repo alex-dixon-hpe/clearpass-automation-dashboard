@@ -1,0 +1,29 @@
+{# templates/change-vlan.html #}
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>{% block title %} Change VLAN {% endblock %}</h1>
+  </div>
+  <form action="/change-vlan" method="post">
+    <div class="mb-3 container">
+      <label for="mac-addr" class="form-label">MAC Address: (Format: upper and lowercase, Separators: ':' and '-')</label>
+      <input type="text" class="form-control" id="mac-addr" name="mac-addr" placeholder="MAC Address" value="{{ value_mac_addr }}">
+    </div>
+    
+    <div class="mb-3 container">
+      <label for="vlan-id" class="form-label">VLAN ID:</label>
+      <input type="text" class="form-control" id="vlan-id" name="vlan-id" placeholder="VLAN ID" value="{{ value_vlan_id }}">
+    </div>
+    
+    <div class ="container">
+      <input type="submit" class="btn btn-secondary" value="Change VLAN">
+    </div>
+  </form>
+  <div class="container">
+    <p>{{ mac_addr }}</p>
+    <p>{{ vlan_id }}</p>
+    <p>{{ json_response }}</p>
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{# templates/index.html #}
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="container">
+    <h1>{% block title %} Home {% endblock %}</h1>
+    <a class="btn btn-outline-dark btn-lg" href="/change-vlan" role="button">Change VLAN ID</a>
+    <a class="btn btn-outline-dark btn-lg" href="/central-devices" role="button">Central Devices</a>
+  </div>
+
+  <p>{{ text }}</p>
+{% endblock %}
