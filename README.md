@@ -1,4 +1,4 @@
-# CPPM Dashboard
+# ClearPass Automation Dashboard
 
 - [Setup](#setup)
     - [API Credentials](#api-credentials)
