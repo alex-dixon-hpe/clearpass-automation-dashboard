@@ -276,17 +276,6 @@ central_info = {
         }
 ```
 
-## `group_config.py`
-Attention: This file is a work in progress! It is not currently being used within the dashboard. The code here has not been tested and as such has to be evaluated before it can be integrated safely.
-
-This file will handle to cloning of groups, moving of devices and setting template variables.
-- Firstly the `ArubaCentralBase` is imported from `pycentral.base`, Aruba Central Groups and Devices are imported from `pycentral.configuration` and the credentials for Aruba Central are imported from `creds_central`.
-- An instance of the ArubaCentralBase is created with `ssl_verify` set to true. The credentials are passed to the constructor and `token_store` is set to `None`.
-- The API method is called to clone the group. The ArubaCentralBase instance `central`, the group_id variable and `cxtemplate` are passed to the method.
-- The response code is checked. If it exists, an error occurred. Then the message containing the error is returned.
-- The API method is called to move the devices. The ArubaCentralBase instance `central`, the group_id variable and a list of device serials are passed to the method.
-- The response code is checked. If it exists, an error occurred. Then the message containing the error is returned.
-
 ## `utils.py`
 This files contains utilities for specific use cases within the dashboard.
 
